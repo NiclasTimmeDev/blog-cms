@@ -1,0 +1,149 @@
+/*==============
+SETTINGS
+==============*/
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+/* html {
+  font-size: 62.5%; 
+} */
+
+/*==============
+VARIABLES
+==============*/
+:root {
+  --fontColor: #292929;
+}
+
+body {
+  color: var(--fontColor);
+}
+
+.container-fluid {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.half-screen {
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inline {
+  display: inline;
+}
+
+/*==============
+FONTS
+==============*/
+.primary-font {
+  color: var(--fontColor) !important;
+}
+
+/*==============
+HEADERS
+==============*/
+h3 {
+  margin-bottom: 2rem;
+}
+.section-header {
+  margin-bottom: 3rem;
+}
+/*==============
+LAYOUT
+==============*/
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.mb-large {
+  margin-bottom: 5rem;
+}
+
+/*==============
+ICONS
+==============*/
+.inline-icon {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.icon-clickable {
+  cursor: pointer;
+}
+
+/*==============
+SECTIONS
+==============*/
+section {
+  margin-bottom: 4rem;
+}
+
+/*==============
+HERO SECTION
+==============*/
+.hero-section {
+  background-color: lightgray;
+}
+
+.hero-content-bundle {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.hero-content-bundle-l {
+  width: 80%;
+}
+
+/*==============
+POSTS ABSTRACT
+==============*/
+.post {
+  padding: 1rem 0;
+}
+
+.post p {
+  margin: 0;
+}
+
+/*==============
+LANDING PAGE
+==============*/
+.carousel-inner {
+  width: 100%;
+}
+
+#landing-carousel {
+  height: 50vh;
+  margin-bottom: 3rem;
+}
+
+/*==============
+SINGLE POST PAGE
+==============*/
+.single-thumbnail {
+  width: 80%;
+  max-height: 90%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
