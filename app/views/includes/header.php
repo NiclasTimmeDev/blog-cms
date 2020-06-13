@@ -16,5 +16,5 @@
     <body>
 
         <?php
-    //navbar
-    require_once(APPROOT . "/views/includes/navbar.php");
+    require_once(APPROOT . "/controllers/Navbar.php");
+    $navbar = new Navbar();

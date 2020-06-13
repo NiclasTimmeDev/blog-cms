@@ -159,6 +159,9 @@ class Admins extends Controller
         }
     }
 
+    /*===============================
+    SANITIZE NAVBAR ORDER INPUTS
+    ===============================*/
     private function set_navbar_order($post)
     {
         $arr = array_keys($post);

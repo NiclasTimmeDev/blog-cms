@@ -87,13 +87,19 @@ get_header();
 
                     <h3 class="header-no-mg">Order your navbar items</h3>
                     <span class="text-muted mb-small">The order of your navbar items</span>
-                    <?php foreach ($data as $link) : ?>
+                    <?php foreach ($data as $link) :
+                        if ($link->selected == 1) :
+
+
+                            ?>
                     <div class="flex navbar-drag-item" draggable="true">
                         <i class="fas fa-grip-lines text-info"></i>
                         <div><?php echo $link->name ?></div>
                         <input type="hidden" name="<?php echo $link->name; ?>" value=<?php echo $link->name;  ?>>
                     </div>
-                    <?php endforeach; ?>
+                    <?php
+                        endif;
+                    endforeach; ?>
                 </div>
                 <input type="submit" class="btn btn-primary inline" value="Save">
             </form>
