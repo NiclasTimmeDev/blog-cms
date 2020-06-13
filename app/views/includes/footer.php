@@ -9,6 +9,8 @@
 </script>
 <script src="<?php echo URLROOT; ?>/js/main.js"></script>
 
+<?php require_once(APPROOT . "/views/functions.php"); ?>
+
 </div>
 </body>
 

@@ -45,7 +45,7 @@ tinymce.init({
                         <div class="form-group">
                             <label for="thumbnail">Thumbnail</label>
                             <input type="file" class="form-control-file" name="thumbnail"
-                                value=<?php $data["thumbnail"]; ?>>
+                                value=<?php $data["tmp_name"]; ?>>
                         </div>
                         <input type="submit" class="btn btn-primary btn-block no-gutters" name="submit" value="Post">
                     </div>

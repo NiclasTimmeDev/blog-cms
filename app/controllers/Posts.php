@@ -48,7 +48,8 @@ class Posts extends Controller
     public function create()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $this->loadView("/posts/create", $this->post_data);
+
+            $this->loadView("/posts/create", array_merge($this->post_data, $this->thumb_data));
         } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $this->sanitize_post_inputs();
@@ -62,10 +63,10 @@ class Posts extends Controller
                     redirect("admins/dashboard");
                 } elseif ($new_post = "URL already taken") {
                     flash("create_alert_failure", "The URL you are trying to create is already taken", "alert alert-danger");
-                    $this->loadView("posts/create", $this->post_data);
+                    $this->loadView("/posts/create", array_merge($this->post_data), $this->thumb_data);
                 }
             } else {
-                $this->loadView("posts/create", $this->post_data);
+                $this->loadView("/posts/create", array_merge($this->post_data), $this->thumb_data);
             }
         }
     }

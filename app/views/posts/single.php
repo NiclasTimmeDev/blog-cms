@@ -1,7 +1,6 @@
 <?php
 get_header();
 get_navbar();
-// echo $data->thumb_url;
 ?>
 
 <section class="hero-section half-screen">
@@ -10,13 +9,11 @@ get_navbar();
         <img class="single-thumbnail" src=<?php echo UPLOADS_ROOT . "/" . $data->thumb_url; ?> />
         <h1><?php echo $data->title ?></h1>
     </div>
-
 </section>
 
 <section>
     <article>
         <div class="container">
-
             <div class="row justify-content-center">
                 <div class="col-8">
                     <?php echo $data->content ?>
