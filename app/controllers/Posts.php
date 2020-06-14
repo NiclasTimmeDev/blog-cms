@@ -83,11 +83,18 @@ class Posts extends Controller
             $this->loadView("posts/edit", $post);
         } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
             //No need to filter content, as tinyMCE already does it
+            // print_r($_FILES);
+            if (!empty($_FILES["thumbnail"]["name"])) {
+                echo "Update thumb";
+                $this->sanitize_thumbnail_input();
+                $this->update_thumbnail();
+            }
+
             $_POST["title"] = filter_var($_POST["title"], FILTER_SANITIZE_STRING);
 
             $post->title = $_POST["title"];
             $post->content = $_POST["content"];
-            if ($this->post_model->edit_post($post)) {
+            if ($this->post_model->edit_post($post->id, $post->title, $post->content, $this->thumb_data["destination"])) {
                 flash("edit_success", "Post updated successfully");
                 redirect("posts/single/" . $post->url);
             } else {
@@ -165,7 +172,6 @@ class Posts extends Controller
         $this->thumb_data["tmp_name"] = $tmp_name;
         $this->thumb_data["extension"] = $ext;
         $this->thumb_data["newFileName"] = $new_name;
-        echo $this->thumb_data["newFileName"];
     }
 
     /*==============================
@@ -176,6 +182,15 @@ class Posts extends Controller
         $destination = dirname(APPROOT) . "/public/uploads/" . $this->thumb_data["newFileName"];
         $this->thumb_data["destination"] = $this->thumb_data["newFileName"];
         echo $this->thumb_data["destination"];
+        move_uploaded_file($this->thumb_data["tmp_name"], $destination);
+    }
+    /*==============================
+    UPDATE THUMBNAIL
+    ==============================*/
+    private function update_thumbnail()
+    {
+        $destination = dirname(APPROOT) . "/public/uploads/" . $this->thumb_data["newFileName"];
+        $this->thumb_data["destination"] = $this->thumb_data["newFileName"];
         move_uploaded_file($this->thumb_data["tmp_name"], $destination);
     }
 

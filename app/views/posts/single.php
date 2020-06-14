@@ -3,12 +3,18 @@ get_header();
 get_navbar();
 ?>
 
-<section class="hero-section half-screen">
+
+<section>
     <?php flash("edit_success"); ?>
-    <div class="hero-content-bundle hero-content-bundle-l center">
-        <img class="single-thumbnail" src=<?php echo UPLOADS_ROOT . "/" . $data->thumb_url; ?> />
-        <h1><?php echo $data->title ?></h1>
-    </div>
+    <div class="single-hero-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-auto">
+                    <img class="single-thumbnail center-block"
+                        src=<?php echo UPLOADS_ROOT . "/" . $data->thumb_url; ?> />
+                    <h1 class="section-header single-header"><?php echo $data->title ?></h1>
+                </div>
+            </div>
 </section>
 
 <section>
@@ -28,8 +34,6 @@ get_navbar();
         </div>
     </article>
 </section>
-
-
 
 <?php
 get_footer();

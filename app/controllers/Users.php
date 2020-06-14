@@ -169,6 +169,6 @@ class Users extends Controller
         unset($_SESSION["user_username"]);
         unset($_SESSION["user_mail"]);
         session_destroy();
-        redirect("pages/index");
+        redirect("");
     }
 }

@@ -28,13 +28,15 @@ class Post extends Database
     /*====================
     EDIT POST
     ====================*/
-    public function edit_post($post)
+    public function edit_post($id, $title, $content, $post_thumb)
     {
-        $this->stmt = $this->pdo->prepare("UPDATE posts SET title = :title, content = :content WHERE id = :id");
+
+        $this->stmt = $this->pdo->prepare("UPDATE posts SET title = :title, content = :content, thumb_url = :thumb_url WHERE id = :id");
         if ($this->stmt->execute([
-            ":title" => $post->title,
-            ":content" => $post->content,
-            ":id" => $post->id
+            ":title" => $title,
+            ":content" => $content,
+            ":id" => $id,
+            "thumb_url" => $post_thumb
         ])) {
             return true;
         } else {
